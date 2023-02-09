@@ -7,15 +7,23 @@ public class Main {
 
 
     }
-    public static int binarySearch(int data, int start, int end, int number){
-        if(end<1){
-            return -1;
-        }
-        int n = (start+end)/2;
-        if(data[n]==number)
-            return n;
+    public static int binarySearch(int search, int[] array){
+        int start = 0;
+        int end = array.length -1;
 
-        else if(data[n]>number)
-            return
+        while(start<=end){
+            int middle = (start + end)/2;
+            if(search<array[middle]){
+                end = middle-1;
+            }
+            if(search>array[middle]){
+                end = middle+1;
+            }
+            if(search==array[middle]){
+                return middle;
+            }
+        }
+        return -1;
     }
 }
+
